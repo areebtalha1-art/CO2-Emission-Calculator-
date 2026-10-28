@@ -97,4 +97,43 @@ if st.button("Calculate CO2 Emissions"):
                     st.warning("CO2 emissions per capita in India are equivalent to 2.19 tons per person, an increase by 0.08 over the figure of 2.12 CO2 tons per person registered in 2023.")
             
 
+    category_emissions = {
+        "Transportation": transportation_emissions,
+        "Electricity": electricity_emissions,
+        "Diet": diet_emissions,
+        "Waste": waste_emissions,
+    }
+    category_actions = {
+        "Transportation": "Combine errands, choose public transport or carpool when practical, and walk or cycle for shorter trips.",
+        "Electricity": "Use LED bulbs and efficient appliances, switch devices off when not in use, and check whether renewable electricity is available.",
+        "Diet": "Plan portions to avoid leftovers and try replacing some meals with plant-rich options.",
+        "Waste": "Prevent avoidable waste, reuse and recycle materials, and compost food scraps where local services allow.",
+    }
+    category_average = total_emissions / len(category_emissions)
+
+    st.subheader("Ways to reduce your emissions")
+    st.caption(
+        "The comparison below is against your average across these four categories, "
+        "not a national average."
+    )
+    for category, emissions in category_emissions.items():
+        if emissions > category_average:
+            st.warning(
+                f"Your {category.lower()} emissions ({emissions} tonnes/year) are "
+                f"above your per-category average ({category_average:.2f} tonnes/year). "
+                f"Try this: {category_actions[category]}"
+            )
+        else:
+            st.info(
+                f"Your {category.lower()} emissions are at or below your "
+                f"per-category average. To reduce them further: {category_actions[category]}"
+            )
+
+    st.subheader("Official articles and resources")
+    st.markdown(
+        "- [UN ActNow: actions to help the climate](https://www.un.org/en/actnow/)\n"
+        "- [U.S. EPA: Green Vehicles](https://www.epa.gov/greenvehicles)\n"
+        "- [UNEP: Food Waste Index Report 2024](https://www.unep.org/resources/report/food-waste-index-report-2024)\n"
+        "- [Bureau of Energy Efficiency, India](https://beeindia.gov.in/)"
+    )
                                                                         
