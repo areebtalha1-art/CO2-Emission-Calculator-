@@ -93,7 +93,7 @@ if st.button("Calculate CO2 Emissions"):
 
         with col4:
                     st.subheader("Total Carbon Footprint")
-                    st.info(f"🌍Your Total Carbon footpriny is: {total_emissions} tonees CO2 per year")
+                    st.info(f"🌍Your Total Carbon footprint is: {total_emissions} tonnes CO2 per year")
                     st.warning("CO2 emissions per capita in India are equivalent to 2.19 tons per person, an increase by 0.08 over the figure of 2.12 CO2 tons per person registered in 2023.")
             
 
